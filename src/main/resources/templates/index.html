@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/> <!-- En thymeleaf si hay que cerrar los elementos por que marca error  -->
+    <title th:text="${titulo}"></title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"></link>
+</head>
+<body>
+<h1 class="color-rojo" th:text="${titulo}"></h1>
+<h2 class="color-azul"> DEcorando con estilos css, recursos estaticos </h2>
+<img th:src="@{/images/img.png}"></img>
+<!--table th:if="${!usuarios.isEmpty()}">
+    <thead>
+    <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody-->
+    <tr th:each="usr: ${usuarios}">
+        <td th:text="${usr.nombre}"></td>
+        <td th:text="${usr.apellido}"></td>
+        <td th:text="${usr.email}"></td>
+    </tr>
+    </tbody-->
+
+</table>
+
+</body>
+</html>
