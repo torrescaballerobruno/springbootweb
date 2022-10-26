@@ -7,6 +7,7 @@
           integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
+<section th:replace="componentes/tiempo :: interceptor"></section>
 <h3 th:text="${titulo}"></h3>
 <div class="container">
     <form th:action="@{/form}" th:object="${usuario}" method="post">
