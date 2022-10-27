@@ -89,4 +89,12 @@ public class ClienteController {
 *     th:remove="tag"
 *     th:each="err : ${#fields.errors('*')}" //recorrer los errores
 *
+* para el H2
+* spring.datasource.url=jdbc:h2:mem:testdb
+* spring.h2.console.enable=true
+*
+*
+* spring.jpa.hibernate.ddl-auto=create-drop
+* para crear las tablas al levantar y matarlas al bajar la app
+*
 * */

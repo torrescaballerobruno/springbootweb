@@ -11,12 +11,12 @@ import java.util.List;
 @Service
 public class ClienteServiceImpl implements IClienteService{
     @Autowired
-    private IClienteDao clienteDao;
+    private IClienteDao clienteDao;  //No es necesario marcar la interfaz, o implementarla, ya lo hace por abajo
 
     @Override
     @Transactional(readOnly = true)  //
     public List<Cliente> findAll() {
-        return clienteDao.findAll();
+        return (List<Cliente>) clienteDao.findAll();
     }
 
     @Override
@@ -28,12 +28,12 @@ public class ClienteServiceImpl implements IClienteService{
     @Override
     @Transactional(readOnly = true)
     public Cliente findOne(Long id) {
-        return clienteDao.findOne(id);
+        return (Cliente) clienteDao.findById(id).orElse(null);
     }
 
     @Override
     @Transactional
     public void delete(Long id) {
-        clienteDao.delete(id);
+        clienteDao.deleteById(id);
     }
 }
