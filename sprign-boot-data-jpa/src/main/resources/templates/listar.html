@@ -25,6 +25,11 @@
     </div>
   </div>
 </nav>
+<div class="alert alert-success" th:if="${success != null}" th:text="${success}"></div>
+<div class="alert alert-danger" th:if="${error != null}" th:text="${error}"></div>
+<div class="alert alert-warning" th:if="${warning != null}" th:text="${warning}"></div>
+<div class="alert alert-info" th:if="${info != null}" th:text="${info}"></div>
+
 <div class="container">
 <h1 class="text-primary border border-success border-top-0 border-left-0 border-right-0" th:text="${titulo}"></h1>
 <p><a th:href="@{/form}" class="btn btn-default btn-xs">crear cliente</a></p>
@@ -52,6 +57,7 @@
   </tr>
   </tbody>
 </table>
+  <nav th:replace="paginator-nav :: paginator"></nav>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
