@@ -29,36 +29,16 @@
 <div class="alert alert-warning" th:if="${warning != null}" th:text="{warning}"></div>
 <div class="alert alert-info" th:if="${info != null}" th:text="{info}"></div>
 <div class="container">
-<h1 th:text="${titulo}" class="text-secondary border border-success border-top-0 border-left-0 border-right-0"></h1>
+    <h1 th:text="${titulo}" class="text-secondary border border-success border-top-0 border-left-0 border-right-0"></h1>
 
-<form th:action="@{/form}" th:object="${cliente}" method="post" enctype="multipart/form-data">
-    <table class="table table-bordered">
-        <tr>
-            <td style="width: 200px;">Nombre</td>
-            <td><input type="text" th:field="*{nombre}" class="form-control"/></td>
-        </tr>
-        <tr>
-            <td>Apellido</td>
-            <td><input type="text" th:field="*{apellido}" class="form-control"/></td>
-        </tr>
-        <tr>
-            <td>Email</td>
-            <td><input type="email" th:field="*{email}" class="form-control"/></td>
-        </tr>
-        <tr>
-            <td>Fecha</td>
-            <td><input type="text" th:field="*{createAt}" class="form-control"/></td>
-        </tr>
-        <tr>
-            <label for="file">Foto</label>
-            <td><input type="file" name="file" class="form-control"/></td>
-        </tr>
-        <tr>
-            <td><input type="submit" val="Crear Cliente" class="btn btn-primary"/></td>
-        </tr>
-    </table>
-    <input type ="hidden" th:field="*{id}"/>
-</form>
+    <img th:if="${#strings.length(cliente.foto)>0}" class="img-thumbnail rounded float-left" style="max-width: 25%;" th:src="@{'/uploads/'+${cliente.foto}}" th:alt="${cliente.foto}">
+    <ul class="list-group">
+        <li class="list-group-item" th:text="${cliente.nombre}"></li>
+        <li class="list-group-item" th:text="${cliente.apellido}"></li>
+        <li class="list-group-item" th:text="${cliente.email}"></li>
+        <li class="list-group-item" th:text="${cliente.createAt}"></li>
+    </ul>
+
 </div>
 </body>
 </html>
